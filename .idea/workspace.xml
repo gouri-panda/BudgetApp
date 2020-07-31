@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f62170c-5af9-4e91-8aa9-81cf5bb41146" name="Default Changelist" comment="" />
+    <list default="true" id="6f62170c-5af9-4e91-8aa9-81cf5bb41146" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -14,6 +22,7 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1f876YQYMj0eLpJzxKLTDrkzCFH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -21,6 +30,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
@@ -49,11 +59,25 @@
       <workItem from="1595587692642" duration="1962000" />
       <workItem from="1595754908039" duration="2875000" />
       <workItem from="1595843232885" duration="3522000" />
-      <workItem from="1596202169771" duration="6254000" />
+      <workItem from="1596202169771" duration="9051000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="303" y="51" key="CommitChangelistDialog2" timestamp="1596221476062">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="303" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1596221476062" />
+    <state x="144" y="79" key="DiffContextDialog" timestamp="1596221466523">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="144" y="79" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1596221466523" />
+    <state x="585" y="350" key="Github.ShareDialog" timestamp="1596217711172">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="585" y="350" key="Github.ShareDialog/0.0.1440.900@0.0.1440.900" timestamp="1596217711172" />
   </component>
 </project>

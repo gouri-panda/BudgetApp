@@ -1,56 +1,63 @@
 console.log('starting');
 let budgetController = (function () {
-    let Expanse = function (id, description, value) {
-        this.id = id;
-        this.description = description;
-        this.value = value;
-    };
-    let Income = function (id, description, value) {
-        this.id = id;
-        this.description = description;
-        this.value = value;
-    };
-    let data = {
-        allItems: {
-            exp: [],
-            inc: []
-        },
-        total: {
-            exp: 0,
-            inc: 0
-        }
-
-    };
-    return {
-        addItem: function (type, des, value) {
-            console.log('value ' + value);
-            let newItem, id;
-            if (data.allItems[type].length > 0) {
-
-                id = data.allItems[type][data.allItems[type].length - 1] + 1; // last id +1
-            } else {
-                id = 0;
+        let Expanse = function (id, description, value) {
+            this.id = id;
+            this.description = description;
+            this.value = value;
+        };
+        let Income = function (id, description, value) {
+            this.id = id;
+            this.description = description;
+            this.value = value;
+        };
+        let data = {
+            allItems: {
+                exp: [],
+                inc: []
+            },
+            total: {
+                exp: 0,
+                inc: 0
             }
 
-            if (type === 'exp') {
-                newItem = new Expanse(id, des, value);
-                console.log('add expanse')
-            } else if (type === 'inc') {
-                newItem = new Income(id, des, value);
-                console.log('add income')
+        };
+        return {
+            addItem: function (type, des, value) {
+                let newItem, id;
+                if (data.allItems[type].length > 0) {
+
+                    id = data.allItems[type][data.allItems[type].length - 1] + 1; // last id +1
+                } else {
+                    id = 0;
+                }
+
+                if (type === 'exp') {
+                    newItem = new Expanse(id, des, value);
+                } else if (type === 'inc') {
+                    newItem = new Income(id, des, value);
+                }
+                data.allItems[type].push(newItem);
+                return newItem;
+            },
+            totalIncome: function (type) {
+                let totalValue = 0;
+                if (type === 'exp') {
+                    data.allItems.exp.forEach(current => {
+                        totalValue += current
+                    });
+
+                } else {
+                    data.allItems.inc.forEach(current => {
+                        totalValue += current
+                    })
+                }
+                console.log('totalvalue '+ totalValue);
+                return totalValue
             }
-            data.allItems[type].push(newItem);
-            return newItem;
-        },
-
-        testing: function () {
-            console.log(data)
         }
-
 
     }
-
-})();
+)();
 
 let DomStrings = {
     inputType: '.add__type',
@@ -67,7 +74,7 @@ let UiController = (function () {
             return {
                 type: document.querySelector(DomStrings.inputType).value, //+ or - income or expanse
                 description: document.querySelector(DomStrings.description).value,
-                value: document.querySelector(DomStrings.value).value,
+                value: parseFloat(document.querySelector(DomStrings.value).value),
             }
         },
         addListItem: function (type, obj) {
@@ -82,7 +89,6 @@ let UiController = (function () {
             }
             newHtml = html.replace('%id%', obj.id);
             newHtml = newHtml.replace('%description%', obj.description);
-            console.log('value ' + obj.value);
             newHtml = newHtml.replace('%v%', obj.value);
             document.querySelector(element).insertAdjacentHTML("beforeend", newHtml)
         }
@@ -97,27 +103,34 @@ let controller = (function (budgetController, uiController) {
     document.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             controller.addItem();
-            console.log('enter pressed')
         }
     });
     return {
         addItem: function () {
-            console.log('init');
             let input = UiController.getInput();
-            let newItem = budgetController.addItem(input.type, input.description, input.value);
-            uiController.addListItem(input.type, newItem);
-            this.clearFields();
-            console.log(newItem)
+            if (input.description !== '' && !isNaN(input.value)) {
+                let newItem = budgetController.addItem(input.type, input.description, input.value);
+                uiController.addListItem(input.type, newItem);
+                this.clearFields();
+                this.updateBudget();
+                console.log(newItem)
+            }
         },
         clearFields: function () {
             let queryAll = document.querySelectorAll(DomStrings.description + ',' + DomStrings.value);
             queryAll.forEach(current => {
-                console.log(current);
                 current.value = ""
             });
             document.querySelector(DomStrings.description).focus()
 
+        },
+        updateBudget: function () {
+            let totalIncome = document.querySelector('.budget__income--value');
+            console.log('textcontent' + budgetController.totalIncome('inc'));
+            console.log('textcontent' + budgetController.totalIncome('exp'));
+            totalIncome.textContent = budgetController.totalIncome().toString()
         }
+
     };
 
 
