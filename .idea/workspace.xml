@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f62170c-5af9-4e91-8aa9-81cf5bb41146" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,18 +57,31 @@
       <workItem from="1595587692642" duration="1962000" />
       <workItem from="1595754908039" duration="2875000" />
       <workItem from="1595843232885" duration="3522000" />
-      <workItem from="1596202169771" duration="9051000" />
+      <workItem from="1596202169771" duration="10389000" />
+      <workItem from="1596538857048" duration="1186000" />
     </task>
+    <task id="LOCAL-00001" summary="fixed bug">
+      <created>1596221490831</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1596221490831</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="51" key="CommitChangelistDialog2" timestamp="1596221476062">
+    <state x="303" y="51" key="CommitChangelistDialog2" timestamp="1596221490698">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1596221476062" />
+    <state x="303" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1596221490698" />
     <state x="144" y="79" key="DiffContextDialog" timestamp="1596221466523">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -79,5 +90,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="585" y="350" key="Github.ShareDialog/0.0.1440.900@0.0.1440.900" timestamp="1596217711172" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1596221493212">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1596221493212" />
   </component>
 </project>
