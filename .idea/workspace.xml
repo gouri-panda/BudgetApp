@@ -4,6 +4,8 @@
     <list default="true" id="6f62170c-5af9-4e91-8aa9-81cf5bb41146" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +60,7 @@
       <workItem from="1595754908039" duration="2875000" />
       <workItem from="1595843232885" duration="3522000" />
       <workItem from="1596202169771" duration="10389000" />
-      <workItem from="1596538857048" duration="1186000" />
+      <workItem from="1596538857048" duration="3574000" />
     </task>
     <task id="LOCAL-00001" summary="fixed bug">
       <created>1596221490831</created>
@@ -67,7 +69,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596221490831</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added dom manipulation">
+      <created>1596540358104</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1596540358104</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,24 +84,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug" />
+    <MESSAGE value="added dom manipulation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dom manipulation" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="51" key="CommitChangelistDialog2" timestamp="1596221490698">
+    <state x="303" y="51" key="CommitChangelistDialog2" timestamp="1596566343620">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1596221490698" />
-    <state x="144" y="79" key="DiffContextDialog" timestamp="1596221466523">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="303" y="51" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1596566343620" />
+    <state x="144" y="79" width="1152" height="720" key="DiffContextDialog" timestamp="1596566504957">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
-    <state x="144" y="79" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1596221466523" />
+    <state x="144" y="79" width="1152" height="720" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1596566462553" />
+    <state x="144" y="79" width="1152" height="720" key="DiffContextDialog/0.23.1440.821@0.23.1440.821" timestamp="1596566504957" />
     <state x="585" y="350" key="Github.ShareDialog" timestamp="1596217711172">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="585" y="350" key="Github.ShareDialog/0.0.1440.900@0.0.1440.900" timestamp="1596217711172" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1596221493212">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1596540360708">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1596221493212" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1596540360708" />
   </component>
 </project>
