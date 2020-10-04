@@ -43,8 +43,14 @@
                 <option value="inc" selected>+</option>
                 <option value="exp">-</option>
             </select>
-            <input type="text" class="add__description" placeholder="Add description">
-            <input type="number" class="add__value" placeholder="Value">
+            <div class="add__field-container">
+                <input type="text" class="add__description" placeholder="Add description">
+                <span class="add__error">This field is required</span>
+            </div>
+            <div class="add__field-container">
+                <input type="number" class="add__value" placeholder="Value">
+                <span class="add__error">This field is required</span>
+            </div>
             <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
         </div>
     </div>

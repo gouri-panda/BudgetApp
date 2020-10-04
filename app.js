@@ -220,6 +220,11 @@ var UIController = (function () {
         }
     };
 
+    var deactivateInputError = function(inputSelector) {
+        var input = document.querySelector(inputSelector);
+        input.classList.remove('--invalid');
+    };
+
 
     return {
         getInput: function () {
@@ -228,6 +233,16 @@ var UIController = (function () {
                 description: document.querySelector(DOMstrings.inputDescription).value,
                 value: parseFloat(document.querySelector(DOMstrings.inputValue).value)
             };
+        },
+
+
+        activateInputError: function(inputSelector) {
+            var input = document.querySelector(inputSelector);
+            input.classList.add('--invalid');
+
+            input.addEventListener('input', () => {
+                deactivateInputError(inputSelector)
+            }, { once: true });
         },
 
 
@@ -406,20 +421,29 @@ var controller = (function (budgetCtrl, UICtrl) {
         // 1. Get the field input data
         input = UICtrl.getInput();
 
+        // 2. Check if inputs are filled
+        if (!input.description) {
+            UICtrl.activateInputError(UICtrl.getDOMstrings().inputDescription);
+        }
+
+        if (isNaN(input.value)) {
+            UICtrl.activateInputError(UICtrl.getDOMstrings().inputValue);
+        }
+
         if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
-            // 2. Add the item to the budget controller
+            // 3. Add the item to the budget controller
             newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 
-            // 3. Add the item to the UI
+            // 4. Add the item to the UI
             UICtrl.addListItem(newItem, input.type);
 
-            // 4. Clear the fields
+            // 5. Clear the fields
             UICtrl.clearFields();
 
-            // 5. Calculate and update budget
+            // 6. Calculate and update budget
             updateBudget();
 
-            // 6. Calculate and update percentages
+            // 7. Calculate and update percentages
             updatePercentages();
         }
     };

@@ -136,6 +136,20 @@ body {
     transition: border 0.3s;
 }
 
+.add__field-container {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.add__error {
+    color: #FF5049;
+    align-self: flex-start;
+    font-size: 12px;
+    margin-top: 2px;
+    text-align: left;
+    display: none;
+}
+
 .add__description,
 .add__value {
     border: 1px solid #e7e7e7;
@@ -149,8 +163,18 @@ body {
     transition: border 0.3s;
 }
 
+.add__description.--invalid,
+.add__value.--invalid {
+    border-color: #FF5049;
+}
+
+.add__description.--invalid + .add__error,
+.add__value.--invalid + .add__error {
+    display: inline;
+}
+
 .add__description { width: 400px;}
-.add__value { width: 100px;}
+.add__value { width: 113px;}
 
 .add__btn {
     font-size: 35px;
