@@ -284,11 +284,9 @@ var UIController = (function () {
 
             if (obj.budget === 0) {
                 document.querySelector(DOMstrings.budgetLabel).textContent = "0.00"
-            } else
-                document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(
-                    obj.budget,
-                    type
-                )
+            } else {
+                document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget,type)
+            }
 
             document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
             document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'exp');
