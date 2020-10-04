@@ -3,7 +3,7 @@ BudgetApp has a free web app that helps you track your cash, discover new ways t
 Checkout our [website](https://gouri-panda.github.io/BudgetApp/)
 
 # Screenshots of the WebPage
-![Screenshot of website]('screenshot2.png')
+![Screenshot of website](https://github.com/shubhraagarwal/BudgetApp/blob/master/Screenshot2.png)
 ![Screenshot after entering data](https://github.com/shubhraagarwal/BudgetApp/blob/master/Screenshot1.png)
 
 # Setting up the project
