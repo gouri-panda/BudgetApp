@@ -52,8 +52,29 @@ var budgetController = (function () {
         percentage: -1
     };
 
+    // load data from localStorage if exists
+    var exp = localStorage.getItem('exp');
+    var inc = localStorage.getItem('inc');
+
+    exp = exp ? JSON.parse(exp) : [];
+    inc = inc ? JSON.parse(inc) : [];
+
+    if (exp) {
+        exp = exp.map((doc) => (new Expense(doc.id, doc.description, doc.value)));
+    }
+    if (inc) {
+        inc = inc.map((doc) => (new Income(doc.id, doc.description, doc.value)));
+    }
+
+    data.allItems.exp = exp;
+    data.allItems.inc = inc;
 
     return {
+        getItems: function () {
+            return data.allItems;
+        },
+
+
         addItem: function (type, des, val) {
             var newItem, ID;
 
@@ -77,6 +98,9 @@ var budgetController = (function () {
 
             // Push it into our data structure
             data.allItems[type].push(newItem);
+            
+            // Persist data in localStorage
+            localStorage.setItem(type, JSON.stringify(data.allItems[type]));
 
             // Return the new element
             return newItem;
@@ -101,6 +125,7 @@ var budgetController = (function () {
                 data.allItems[type].splice(index, 1);
             }
 
+            localStorage.setItem(type, JSON.stringify(data.allItems[type]));
         },
 
 
@@ -150,11 +175,13 @@ var budgetController = (function () {
 
 
         getBudget: function () {
+            this.calculateBudget();
+
             return {
                 budget: data.budget,
                 totalInc: data.totals.inc,
                 totalExp: data.totals.exp,
-                percentage: data.percentage
+                percentage: data.percentage,
             };
         },
 
@@ -243,6 +270,16 @@ var UIController = (function () {
             input.addEventListener('input', () => {
                 deactivateInputError(inputSelector)
             }, { once: true });
+        },
+
+
+        renderListItems: function (data) {
+            for (var i = 0; i < data.inc.length; i += 1) {
+                this.addListItem(data.inc[i], 'inc');
+            }
+            for (var i = 0; i < data.exp.length; i += 1) {
+                this.addListItem(data.exp[i], 'exp');
+            }
         },
 
 
@@ -480,12 +517,8 @@ var controller = (function (budgetCtrl, UICtrl) {
         init: function () {
             console.log('Application has started.');
             UICtrl.displayMonth();
-            UICtrl.displayBudget({
-                budget: 0,
-                totalInc: 0,
-                totalExp: 0,
-                percentage: -1
-            });
+            UICtrl.renderListItems(budgetController.getItems());
+            UICtrl.displayBudget(budgetController.getBudget());
             setupEventListeners();
         }
     };
