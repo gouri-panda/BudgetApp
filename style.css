@@ -23,9 +23,18 @@ body {
     font-weight: 400;
 }
 
-.right { float: right; }
-.red { color: #FF5049 !important; }
-.red-focus:focus { border: 1px solid #FF5049 !important; }
+.right {
+    float: right;
+}
+
+.red {
+    color: #FF5049 !important;
+}
+
+.red-focus:focus {
+    border: 1px solid #FF5049 !important;
+}
+
 
 /**********************************************
 *** TOP PART
@@ -108,11 +117,20 @@ body {
 }
 
 
+/* Rounding the button corner */
+
+.round {
+    border-radius: 12px;
+}
+
+
 /**********************************************
 *** BOTTOM PART
 **********************************************/
 
+
 /***** FORM *****/
+
 .add {
     padding: 14px;
     border-bottom: 1px solid #e7e7e7;
@@ -168,13 +186,18 @@ body {
     border-color: #FF5049;
 }
 
-.add__description.--invalid + .add__error,
-.add__value.--invalid + .add__error {
+.add__description.--invalid+.add__error,
+.add__value.--invalid+.add__error {
     display: inline;
 }
 
-.add__description { width: 400px;}
-.add__value { width: 113px;}
+.add__description {
+    width: 400px;
+}
+
+.add__value {
+    width: 113px;
+}
 
 .add__btn {
     font-size: 35px;
@@ -188,7 +211,9 @@ body {
     margin-left: 10px;
 }
 
-.add__btn:active { transform: translateY(2px); }
+.add__btn:active {
+    transform: translateY(2px);
+}
 
 .add__type:focus,
 .add__description:focus,
@@ -197,9 +222,13 @@ body {
     border: 1px solid #28B9B5;
 }
 
-.add__btn:focus { outline: none; }
+.add__btn:focus {
+    outline: none;
+}
+
 
 /***** LISTS *****/
+
 .container {
     width: 1000px;
     margin: 60px auto;
@@ -223,16 +252,26 @@ h2 {
     margin-bottom: 15px;
 }
 
-.icome__title { color: #28B9B5; }
-.expenses__title { color: #FF5049; }
+.icome__title {
+    color: #28B9B5;
+}
+
+.expenses__title {
+    color: #FF5049;
+}
 
 .item {
     padding: 13px;
     border-bottom: 1px solid #e7e7e7;
 }
 
-.item:first-child { border-top: 1px solid #e7e7e7; }
-.item:nth-child(even) { background-color: #f7f7f7; }
+.item:first-child {
+    border-top: 1px solid #e7e7e7;
+}
+
+.item:nth-child(even) {
+    background-color: #f7f7f7;
+}
 
 .item__description {
     float: left;
@@ -266,7 +305,6 @@ h2 {
     color: #FF5049;
 }
 
-
 .item__delete {
     float: left;
 }
@@ -282,21 +320,36 @@ h2 {
     display: none;
 }
 
-.item__delete--btn:focus { outline: none; }
-.item__delete--btn:active { transform: translateY(2px); }
+.item__delete--btn:focus {
+    outline: none;
+}
 
-.item:hover .item__delete--btn { display: block; }
-.item:hover .item__value { transform: translateX(-20px); }
-.item:hover .item__percentage { transform: translateX(-20px); }
+.item__delete--btn:active {
+    transform: translateY(2px);
+}
 
+.item:hover .item__delete--btn {
+    display: block;
+}
+
+.item:hover .item__value {
+    transform: translateX(-20px);
+}
+
+.item:hover .item__percentage {
+    transform: translateX(-20px);
+}
 
 .unpaid {
     background-color: #FFDAD9 !important;
     cursor: pointer;
     color: #FF5049;
-
 }
 
-.unpaid .item__percentage { box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
-.unpaid:hover .item__description { font-weight: 900; }
+.unpaid .item__percentage {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+}
 
+.unpaid:hover .item__description {
+    font-weight: 900;
+}
