@@ -15,5 +15,7 @@ We are always here to help you out and get started . </br>
 
 Find a issue and then solve  the isssue and make a pull request to the repo. If you didn't find any helpful issue for you then raise a issue and start solving the issue.
 
-# Communocation
+# Communication
 Checkout the [Slack](https://join.slack.com/t/newworkspace-uco4265/shared_invite/zt-huokfrna-unLOpo_bo7fKACHZ2rH7jA) Channel
+
+Checkout the [Whatsapp](https://chat.whatsapp.com/DgTQGaEXclZLKu6xhoFhjp) Group
