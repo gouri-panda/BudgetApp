@@ -2,6 +2,10 @@
 BudgetApp has a free web app that helps you track your cash, discover new ways to save, and even build. To remain unbiased we chose not to include ourselves in the list below, but we think you’ll love us anyway.
 Checkout our [website](https://gouri-panda.github.io/BudgetApp/)
 
+# Screenshots of the WebPage
+![Screenshot of website](https://github.com/shubhraagarwal/BudgetApp/blob/master/Screenshot2.png)
+![Screenshot after entering data](https://github.com/shubhraagarwal/BudgetApp/blob/master/Screenshot1.png)
+
 # Setting up the project
 Step 1 : Fork, Clone and Remote </br>
 Step 2 : Open project in Visual studio code or sublime text
