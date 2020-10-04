@@ -54,7 +54,7 @@ The aim of the repository is:
 - To keep the basic concept of keeping track of daily budget and building smart solutions.
 - To provide the community with a basic html-js app template.
 - To improve the overall UI and user experience.
-<br>
+
 
 ### __Does it follow the code of conduct__
 
