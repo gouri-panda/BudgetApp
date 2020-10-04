@@ -3,8 +3,8 @@ BudgetApp has a free web app that helps you track your cash, discover new ways t
 Checkout our [website](https://gouri-panda.github.io/BudgetApp/)
 
 # Screenshots of the WebPage
-![Screenshot of website](screenshot2.png)
-![Screenshot after entering data](screenshot1.png)
+![Screenshot of website]('screenshot2.png')
+![Screenshot after entering data]('screenshot1.png')
 
 # Setting up the project
 Step 1 : Fork, Clone and Remote </br>
