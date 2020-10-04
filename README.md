@@ -4,7 +4,7 @@ Checkout our [website](https://gouri-panda.github.io/BudgetApp/)
 
 # Screenshots of the WebPage
 ![Screenshot of website]('screenshot2.png')
-![Screenshot after entering data]('screenshot1.png')
+![Screenshot after entering data]('https://github.com/shubhraagarwal/BudgetApp/blob/master/Screenshot1.png')
 
 # Setting up the project
 Step 1 : Fork, Clone and Remote </br>
