@@ -371,6 +371,7 @@ h2 {
 	}
 	.add * {
 		margin: 8px 0;
+		width: auto;
 	}
 	/* .budget {
 		padding-bottom: 20px;
