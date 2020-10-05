@@ -1,7 +1,7 @@
 // BUDGET CONTROLLER
 var budgetController = (function () {
 
-    var Expense = function (id, description, value, title) {
+    var Expense = function (id, description, value, title) {  //id, title, description and values are here 
         this.id = id;
         this.title = title;
         this.description = description;
@@ -32,7 +32,7 @@ var budgetController = (function () {
     };
 
 
-    var calculateTotal = function (type) {
+    var calculateTotal = function (type) { //total calculation function are here
         var sum = 0;
         data.allItems[type].forEach(function (cur) {
             sum += cur.value;
@@ -77,7 +77,7 @@ var budgetController = (function () {
         },
 
 
-        addItem: function (type, des, val, title) {
+        addItem: function (type, des, val, title) {  //add items function
             var newItem, ID;
 
             //[1 2 3 4 5], next ID = 6
@@ -109,7 +109,7 @@ var budgetController = (function () {
         },
 
 
-        deleteItem: function (type, id) {
+        deleteItem: function (type, id) { //delete item function 
             var ids, index;
 
             // id = 6
@@ -150,7 +150,7 @@ var budgetController = (function () {
             // Expense = 100 and income 300, spent 33.333% = 100/300 = 0.3333 * 100
         },
 
-        calculatePercentages: function () {
+        calculatePercentages: function () { //here's the percentage calculation
 
             /*
             a=20
@@ -335,7 +335,7 @@ var UIController = (function () {
         },
 
 
-        displayBudget: function (obj) {
+        displayBudget: function (obj) {  //display budget function
             var type;
             obj.budget > 0 ? type = 'inc' : type = 'exp';
 
@@ -432,7 +432,7 @@ var controller = (function (budgetCtrl, UICtrl) {
     };
 
 
-    var updateBudget = function () {
+    var updateBudget = function () {  //updation function here
 
         // 1. Calculate the budget
         budgetCtrl.calculateBudget();
