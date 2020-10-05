@@ -166,6 +166,7 @@ body {
 	display: none;
 }
 
+.add__title,
 .add__description,
 .add__value {
 	border: 1px solid #e7e7e7;
@@ -179,14 +180,18 @@ body {
 	transition: border 0.3s;
 }
 
-.add__description.--invalid,
+.add__title.--invalid,
 .add__value.--invalid {
 	border-color: #ff5049;
 }
 
-.add__description.--invalid + .add__error,
-.add__value.--invalid + .add__error {
-	display: inline;
+.add__title.--invalid+.add__error,
+.add__value.--invalid+.add__error {
+    display: inline;
+}
+
+.add__title {
+    width: 250px;
 }
 
 .add__description {
@@ -214,6 +219,7 @@ body {
 }
 
 .add__type:focus,
+.add__title:focus,
 .add__description:focus,
 .add__value:focus {
 	outline: none;
