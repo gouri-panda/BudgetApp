@@ -378,6 +378,9 @@ h2 {
 	.top {
 		padding: 20px 0;
 	}
+	.add__container{
+		width:100%;
+	}
 	.add__description{
 		width: 85%;
 	}
