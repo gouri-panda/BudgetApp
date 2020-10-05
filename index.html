@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
     <link type="text/css" rel="stylesheet" href="style.css">
@@ -44,8 +45,11 @@
                 <option value="exp">Expenses</option>
             </select>
             <div class="add__field-container">
-                <input type="text" class="add__description" placeholder="Add description">
+                <input type="text" class="add__title" placeholder="Add title">
                 <span class="add__error">This field is required</span>
+            </div>
+            <div class="add__field-container">
+                <input type="text" class="add__description" placeholder="Add description">
             </div>
             <div class="add__field-container">
                 <input type="number" class="add__value" placeholder="Value" min="0">

@@ -1,8 +1,9 @@
 // BUDGET CONTROLLER
 var budgetController = (function () {
 
-    var Expense = function (id, description, value) {
+    var Expense = function (id, description, value, title) {
         this.id = id;
+        this.title = title;
         this.description = description;
         this.value = value;
         this.percentage = -1;
@@ -23,8 +24,9 @@ var budgetController = (function () {
     };
 
 
-    var Income = function (id, description, value) {
+    var Income = function (id, description, value, title) {
         this.id = id;
+        this.title = title;
         this.description = description;
         this.value = value;
     };
@@ -60,10 +62,10 @@ var budgetController = (function () {
     inc = inc ? JSON.parse(inc) : [];
 
     if (exp) {
-        exp = exp.map((doc) => (new Expense(doc.id, doc.description, doc.value)));
+        exp = exp.map((doc) => (new Expense(doc.id, doc.description, doc.value, doc.title)));
     }
     if (inc) {
-        inc = inc.map((doc) => (new Income(doc.id, doc.description, doc.value)));
+        inc = inc.map((doc) => (new Income(doc.id, doc.description, doc.value, doc.title)));
     }
 
     data.allItems.exp = exp;
@@ -75,7 +77,7 @@ var budgetController = (function () {
         },
 
 
-        addItem: function (type, des, val) {
+        addItem: function (type, des, val, title) {
             var newItem, ID;
 
             //[1 2 3 4 5], next ID = 6
@@ -91,9 +93,9 @@ var budgetController = (function () {
 
             // Create new item based on 'inc' or 'exp' type
             if (type === 'exp') {
-                newItem = new Expense(ID, des, val);
+                newItem = new Expense(ID, des, val, title);
             } else if (type === 'inc') {
-                newItem = new Income(ID, des, val);
+                newItem = new Income(ID, des, val, title);
             }
 
             // Push it into our data structure
@@ -198,6 +200,7 @@ var UIController = (function () {
 
     var DOMstrings = {
         inputType: '.add__type',
+        inputTitle: '.add__title',
         inputDescription: '.add__description',
         inputValue: '.add__value',
         inputBtn: '.add__btn',
@@ -257,6 +260,7 @@ var UIController = (function () {
         getInput: function () {
             return {
                 type: document.querySelector(DOMstrings.inputType).value, // Will be either inc or exp
+                title: document.querySelector(DOMstrings.inputTitle).value,
                 description: document.querySelector(DOMstrings.inputDescription).value,
                 value: parseFloat(document.querySelector(DOMstrings.inputValue).value)
             };
@@ -290,15 +294,16 @@ var UIController = (function () {
             if (type === 'inc') {
                 element = DOMstrings.incomeContainer;
 
-                html = '<div class="item clearfix" id="inc-%id%"> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="inc-%id%"> <strong><div class="item__title">%title%</div></strong> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             } else if (type === 'exp') {
                 element = DOMstrings.expensesContainer;
 
-                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="exp-%id%"> <strong><div class="item__title">%title%</div></strong> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }
 
             // Replace the placeholder text with some actual data
             newHtml = html.replace('%id%', obj.id);
+            newHtml = newHtml.replace('%title%', obj.title);
             newHtml = newHtml.replace('%description%', obj.description);
             newHtml = newHtml.replace('%value%', formatNumber(obj.value, type));
 
@@ -318,7 +323,7 @@ var UIController = (function () {
         clearFields: function () {
             var fields, fieldsArr;
 
-            fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
+            fields = document.querySelectorAll(DOMstrings.inputTitle + ', ' + DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
 
             fieldsArr = Array.prototype.slice.call(fields);
 
@@ -386,6 +391,7 @@ var UIController = (function () {
 
             var fields = document.querySelectorAll(
                 DOMstrings.inputType + ',' +
+                DOMstrings.inputTitle + ',' +
                 DOMstrings.inputDescription + ',' +
                 DOMstrings.inputValue);
 
@@ -459,6 +465,10 @@ var controller = (function (budgetCtrl, UICtrl) {
         input = UICtrl.getInput();
 
         // 2. Check if inputs are filled
+        if (!input.title) {
+            UICtrl.activateInputError(UICtrl.getDOMstrings().inputTitle);
+        }
+
         if (!input.description) {
             UICtrl.activateInputError(UICtrl.getDOMstrings().inputDescription);
         }
@@ -467,9 +477,9 @@ var controller = (function (budgetCtrl, UICtrl) {
             UICtrl.activateInputError(UICtrl.getDOMstrings().inputValue);
         }
 
-        if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
+        if (input.title !== "" && !isNaN(input.value) && input.value > 0) {
             // 3. Add the item to the budget controller
-            newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+            newItem = budgetCtrl.addItem(input.type, input.description, input.value, input.title);
 
             // 4. Add the item to the UI
             UICtrl.addListItem(newItem, input.type);
