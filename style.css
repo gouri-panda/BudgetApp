@@ -183,13 +183,11 @@ body {
 }
 
 .add__title.--invalid,
-.add__description.--invalid,
 .add__value.--invalid {
     border-color: #FF5049;
 }
 
 .add__title.--invalid+.add__error,
-.add__description.--invalid+.add__error,
 .add__value.--invalid+.add__error {
     display: inline;
 }

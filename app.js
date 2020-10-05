@@ -477,7 +477,7 @@ var controller = (function (budgetCtrl, UICtrl) {
             UICtrl.activateInputError(UICtrl.getDOMstrings().inputValue);
         }
 
-        if (input.title !== "" && input.description !== "" && !isNaN(input.value) && input.value > 0) {
+        if (input.title !== "" && !isNaN(input.value) && input.value > 0) {
             // 3. Add the item to the budget controller
             newItem = budgetCtrl.addItem(input.type, input.description, input.value, input.title);
 
