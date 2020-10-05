@@ -1,7 +1,7 @@
 // BUDGET CONTROLLER
 var budgetController = (function () {
 
-    var Expense = function (id, description, value, title) {  //id, title, description and values are here 
+    var Expense = function (id, description, value, title) { //id, title, description and values are here 
         this.id = id;
         this.title = title;
         this.description = description;
@@ -9,7 +9,7 @@ var budgetController = (function () {
         this.percentage = -1;
     };
 
-
+    //calculates percentage of the total income
     Expense.prototype.calcPercentage = function (totalIncome) {
         if (totalIncome > 0) {
             this.percentage = Math.round((this.value / totalIncome) * 100);
@@ -32,7 +32,8 @@ var budgetController = (function () {
     };
 
 
-    var calculateTotal = function (type) { //total calculation function are here
+    //total calculation function are here
+    var calculateTotal = function (type) {
         var sum = 0;
         data.allItems[type].forEach(function (cur) {
             sum += cur.value;
@@ -77,7 +78,8 @@ var budgetController = (function () {
         },
 
 
-        addItem: function (type, des, val, title) {  //add items function
+        //add items function
+        addItem: function (type, des, val, title) {
             var newItem, ID;
 
             //[1 2 3 4 5], next ID = 6
@@ -100,7 +102,7 @@ var budgetController = (function () {
 
             // Push it into our data structure
             data.allItems[type].push(newItem);
-            
+
             // Persist data in localStorage
             localStorage.setItem(type, JSON.stringify(data.allItems[type]));
 
@@ -109,7 +111,8 @@ var budgetController = (function () {
         },
 
 
-        deleteItem: function (type, id) { //delete item function 
+        //delete item function 
+        deleteItem: function (type, id) {
             var ids, index;
 
             // id = 6
@@ -150,7 +153,8 @@ var budgetController = (function () {
             // Expense = 100 and income 300, spent 33.333% = 100/300 = 0.3333 * 100
         },
 
-        calculatePercentages: function () { //here's the percentage calculation
+        //here's the percentage calculation
+        calculatePercentages: function () {
 
             /*
             a=20
@@ -243,14 +247,14 @@ var UIController = (function () {
 
     };
 
-
+    //Node list foreach function
     var nodeListForEach = function (list, callback) {
         for (var i = 0; i < list.length; i++) {
             callback(list[i], i);
         }
     };
 
-    var deactivateInputError = function(inputSelector) {
+    var deactivateInputError = function (inputSelector) {
         var input = document.querySelector(inputSelector);
         input.classList.remove('--invalid');
     };
@@ -267,13 +271,15 @@ var UIController = (function () {
         },
 
 
-        activateInputError: function(inputSelector) {
+        activateInputError: function (inputSelector) {
             var input = document.querySelector(inputSelector);
             input.classList.add('--invalid');
 
             input.addEventListener('input', () => {
                 deactivateInputError(inputSelector)
-            }, { once: true });
+            }, {
+                once: true
+            });
         },
 
 
@@ -335,14 +341,15 @@ var UIController = (function () {
         },
 
 
-        displayBudget: function (obj) {  //display budget function
+        //display budget function
+        displayBudget: function (obj) { 
             var type;
             obj.budget > 0 ? type = 'inc' : type = 'exp';
 
             if (obj.budget === 0) {
                 document.querySelector(DOMstrings.budgetLabel).textContent = "0.00"
             } else {
-                document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget,type)
+                document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget, type)
             }
 
             document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
@@ -372,7 +379,7 @@ var UIController = (function () {
 
         },
 
-
+        //displays month
         displayMonth: function () {
             var now, months, month, year;
 
@@ -432,7 +439,7 @@ var controller = (function (budgetCtrl, UICtrl) {
     };
 
 
-    var updateBudget = function () {  //updation function here
+    var updateBudget = function () { //updation function here
 
         // 1. Calculate the budget
         budgetCtrl.calculateBudget();
