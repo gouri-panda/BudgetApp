@@ -109,8 +109,7 @@ var budgetController = (function () {
             // Return the new element
             return newItem;
         },
-
-
+        
         //delete item function 
         deleteItem: function (type, id) {
             var ids, index;
