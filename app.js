@@ -54,9 +54,9 @@ var budgetController = (function () {
         percentage: -1
     };
 
-    // load data from localStorage if exists
-    var exp = localStorage.getItem('exp');
-    var inc = localStorage.getItem('inc');
+    // load data from sessionStorage if exists
+    var exp = sessionStorage.getItem('exp');
+    var inc = sessionStorage.getItem('inc');
 
     exp = exp ? JSON.parse(exp) : [];
     inc = inc ? JSON.parse(inc) : [];
@@ -101,8 +101,8 @@ var budgetController = (function () {
             // Push it into our data structure
             data.allItems[type].push(newItem);
             
-            // Persist data in localStorage
-            localStorage.setItem(type, JSON.stringify(data.allItems[type]));
+            // Persist data in sessionStorage
+            sessionStorage.setItem(type, JSON.stringify(data.allItems[type]));
 
             // Return the new element
             return newItem;
@@ -127,7 +127,7 @@ var budgetController = (function () {
                 data.allItems[type].splice(index, 1);
             }
 
-            localStorage.setItem(type, JSON.stringify(data.allItems[type]));
+            sessionStorage.setItem(type, JSON.stringify(data.allItems[type]));
         },
 
 
@@ -216,7 +216,7 @@ var UIController = (function () {
     };
 
 
-    var formatNumber = function (num, type) {
+    const formatNumber = function (num, type) {
         var numSplit, int, dec, type;
         /*
             + or - before number
@@ -244,14 +244,14 @@ var UIController = (function () {
     };
 
 
-    var nodeListForEach = function (list, callback) {
+    const nodeListForEach = function (list, callback) {
         for (var i = 0; i < list.length; i++) {
             callback(list[i], i);
         }
     };
 
-    var deactivateInputError = function(inputSelector) {
-        var input = document.querySelector(inputSelector);
+    const deactivateInputError = function (inputSelector) {
+        const input = document.querySelector(inputSelector);
         input.classList.remove('--invalid');
     };
 
@@ -268,7 +268,7 @@ var UIController = (function () {
 
 
         activateInputError: function(inputSelector) {
-            var input = document.querySelector(inputSelector);
+            const input = document.querySelector(inputSelector);
             input.classList.add('--invalid');
 
             input.addEventListener('input', () => {
@@ -278,17 +278,17 @@ var UIController = (function () {
 
 
         renderListItems: function (data) {
-            for (var i = 0; i < data.inc.length; i += 1) {
+            for (let i = 0; i < data.inc.length; i += 1) {
                 this.addListItem(data.inc[i], 'inc');
             }
-            for (var i = 0; i < data.exp.length; i += 1) {
+            for (let i = 0; i < data.exp.length; i += 1) {
                 this.addListItem(data.exp[i], 'exp');
             }
         },
 
 
         addListItem: function (obj, type) {
-            var html, newHtml, element;
+            let html, newHtml, element;
             // Create HTML string with placeholder text
 
             if (type === 'inc') {
@@ -336,7 +336,7 @@ var UIController = (function () {
 
 
         displayBudget: function (obj) {  //display budget function
-            var type;
+            let type;
             obj.budget > 0 ? type = 'inc' : type = 'exp';
 
             if (obj.budget === 0) {
@@ -359,7 +359,7 @@ var UIController = (function () {
 
         displayPercentages: function (percentages) {
 
-            var fields = document.querySelectorAll(DOMstrings.expensesPercLabel);
+            const fields = document.querySelectorAll(DOMstrings.expensesPercLabel);
 
             nodeListForEach(fields, function (current, index) {
 
