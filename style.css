@@ -266,16 +266,6 @@ body {
   margin-right: 50px;
 }
 
-.expenses {
-  width: 475px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	text-align: center;
-	width: 95%;
-	margin: 60px auto;
-}
-
 .income {
 	/* float: left; */
 	width: 50%;
