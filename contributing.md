@@ -29,7 +29,7 @@ __Issues are valuable__
 - Point out any errors or any improvements which could be made
 - Pour in your ideas, they are source for contributions others can make
 - Be humble and request for any clarification needed
-- Its for the community, learn and help others
+- It's for the community, learn and help others
 
 `Thank you for creating issues!`
 

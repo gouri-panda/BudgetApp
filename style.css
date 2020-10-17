@@ -16,7 +16,7 @@
 
 body {
 	color: #555;
-	font-family: Open Sans;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	position: relative;
 	height: 100vh;
@@ -142,7 +142,7 @@ body {
 .add__type {
   border: 1px solid #e7e7e7;
   height: 44px;
-  width:125px;
+  width: 135px;
   font-size: 18px;
   color: inherit;
   background-color: #fff;
@@ -411,13 +411,13 @@ h2 {
 	.top {
 		padding: 20px 0;
 	}
-	.add__container{
+	.add__container {
 		width:100%;
 	}
-	.add__description{
+	.add__description {
 		width: 85%;
 	}
-	.budget{
+	.budget {
 		width: 90%;
 	}
 }
