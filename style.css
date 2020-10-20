@@ -17,7 +17,7 @@
 body {
 	color: #555;
 	font-family: Open Sans;
-	font-size: 19px;
+	font-size: 16px;
 	position: relative;
 	height: 100vh;
 	font-weight: 400;
@@ -40,7 +40,7 @@ body {
 **********************************************/
 
 .top {
-	height: 44vh;
+	height: 43vh;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
 		url(back.png);
 	background-size: cover;
@@ -50,7 +50,7 @@ body {
 
 .budget {
 	position: absolute;
-	width: 355px;
+	width: 350px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -74,7 +74,7 @@ body {
 
 .budget__income,
 .budget__expenses {
-	padding: 13px;
+	padding: 12px;
 	text-transform: uppercase;
 }
 
