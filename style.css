@@ -142,6 +142,7 @@ body {
 .add__type {
   border: 1px solid #e7e7e7;
   height: 44px;
+  width:125px;
   font-size: 18px;
   color: inherit;
   background-color: #fff;
@@ -264,16 +265,6 @@ body {
 .income {
   width: 475px;
   margin-right: 50px;
-}
-
-.expenses {
-  width: 475px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	text-align: center;
-	width: 95%;
-	margin: 60px auto;
 }
 
 .income {
