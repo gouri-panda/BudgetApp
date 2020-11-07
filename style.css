@@ -154,6 +154,17 @@ body {
 
 }
 
+.curr_type{
+	border: 1px solid #e7e7e7;
+	height: 24px;
+	font-size: 10px;
+	color: inherit;
+	background-color: #fff;
+	font-weight: 300;
+	transition: border 0.3s;
+	border-radius: 5px;
+	padding: 3px 5px;
+  }
 .add__field-container {
 	display: inline-flex;
 	flex-direction: column;
@@ -221,6 +232,7 @@ body {
 }
 
 .add__type:focus,
+.curr_type:focus,
 .add__title:focus,
 .add__description:focus,
 .add__value:focus {
@@ -385,6 +397,12 @@ h2 {
 
 .unpaid:hover .item__description {
 	font-weight: 900;
+}
+.add__container{
+	margin: 8px;
+	color:#444;
+	position: absolute;
+	right: 0px;
 }
 @media only screen and (max-width: 740px) {
 	.container {

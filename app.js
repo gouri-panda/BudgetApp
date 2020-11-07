@@ -204,6 +204,7 @@ var UIController = (function () {
         inputDescription: '.add__description',
         inputValue: '.add__value',
         inputBtn: '.add__btn',
+        currency: '.curr_type',
         incomeContainer: '.income__list',
         expensesContainer: '.expenses__list',
         budgetLabel: '.budget__value',
@@ -294,11 +295,11 @@ var UIController = (function () {
             if (type === 'inc') {
                 element = DOMstrings.incomeContainer;
 
-                html = '<div class="item clearfix" id="inc-%id%"> <strong><div class="item__title">%title%</div></strong> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="inc-%id%"> <strong><div class="item__title">%title%</div></strong> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value% %currency%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             } else if (type === 'exp') {
                 element = DOMstrings.expensesContainer;
 
-                html = '<div class="item clearfix" id="exp-%id%"> <strong><div class="item__title">%title%</div></strong> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="exp-%id%"> <strong><div class="item__title">%title%</div></strong> <div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value% %currency%<div class="currency"> </div></div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }
 
             // Replace the placeholder text with some actual data
@@ -306,6 +307,7 @@ var UIController = (function () {
             newHtml = newHtml.replace('%title%', obj.title);
             newHtml = newHtml.replace('%description%', obj.description);
             newHtml = newHtml.replace('%value%', formatNumber(obj.value, type));
+            newHtml = newHtml.replace('%currency%', document.querySelector(DOMstrings.currency).value);
 
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
@@ -338,15 +340,15 @@ var UIController = (function () {
         displayBudget: function (obj) {  //display budget function
             let type;
             obj.budget > 0 ? type = 'inc' : type = 'exp';
-
+            var currency = document.querySelector(DOMstrings.currency).value
             if (obj.budget === 0) {
                 document.querySelector(DOMstrings.budgetLabel).textContent = "0.00"
             } else {
-                document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget,type)
+                document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget,type) + currency
             }
 
-            document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
-            document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'exp');
+            document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.totalInc, 'inc') + currency;
+            document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, 'exp')+ currency;
 
             if (obj.percentage > 0) {
                 document.querySelector(DOMstrings.percentageLabel).textContent = obj.percentage + '%';
@@ -419,6 +421,7 @@ var controller = (function (budgetCtrl, UICtrl) {
         var DOM = UICtrl.getDOMstrings();
 
         document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+        document.querySelector(DOM.currency).addEventListener('change', currencyChange);
 
         document.addEventListener('keypress', function (event) {
             if (event.keyCode === 13 || event.which === 13) {
@@ -457,6 +460,9 @@ var controller = (function (budgetCtrl, UICtrl) {
         UICtrl.displayPercentages(percentages);
     };
 
+    var currencyChange = function () {
+        UICtrl.displayBudget(budgetController.getBudget());
+    }
 
     var ctrlAddItem = function () {
         var input, newItem;
