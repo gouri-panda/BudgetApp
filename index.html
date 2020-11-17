@@ -52,8 +52,10 @@
                 <input type="text" class="add__description" placeholder="Add description">
             </div>
             <div class="add__field-container">
-                <input type="number" class="add__value" placeholder="Value" min="0">
+                <input type="number" class="add__value" placeholder="Value" min="0" onkeypress="return isNumber(event)">
                 <span class="add__error">This field is required</span>
+                <!-- Error message if non-numeric characters are entered. (modify it if u need) -->
+                <span class="error"> Enter numbers only</span>              
             </div>
             <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
         </div>
@@ -138,6 +140,20 @@
         time: '0.5s',
         label: '🌓'
       }).showWidget();
+
+// event listener function for checking the non numeric input and throwing the error.
+      function isNumber(evt) {
+       var errorClass = document.querySelector('.error');
+       evt = (evt) ? evt : window.event;
+       var charCode = (evt.which) ? evt.which : evt.keyCode;
+       if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        errorClass.style.display = 'block'; 
+        return false;
+       }
+      errorClass.style.display = 'none';
+      return true;
+    }
+
     </script>
 
 </body>
