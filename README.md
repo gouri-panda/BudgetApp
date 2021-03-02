@@ -25,4 +25,3 @@ Find a issue and then solve  the isssue and make a pull request to the repo. If 
 
 ## Connect
 - [Slack Channel](https://join.slack.com/t/newworkspace-uco4265/shared_invite/zt-huokfrna-unLOpo_bo7fKACHZ2rH7jA)
-- [Whatsapp Chat](https://chat.whatsapp.com/DgTQGaEXclZLKu6xhoFhjp)
